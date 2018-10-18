@@ -53,29 +53,6 @@ public void draw()
 		nextGenerationRulesCalculation();
 	}
 }
-public class Fill  {
-boolean deadFill = false;
-boolean bornFill = false;
-boolean surviveFill = false;
-	public Fill () {
-		
-	}
-
-public void filler () {
-	if (deadFill) 
-	{
-	fill(0xffF5021F);
-	}
-		if (bornFill) 
-		{
-		fill(0xffFFB23E);
-		}
-			if (surviveFill)
-			{
-			fill(0xff0FFC00);	
-			}
-	}
-}
 public class GameObject  
 {
 
@@ -302,18 +279,20 @@ public void mouseWheel(MouseEvent event)
   translateX += mouseX;
   translateY += mouseY;  
   println(scaleFactor);
+  
   if (scaleFactor < 1) 
   {
     scaleFactor = 1;
   }
-  if (scaleFactor == 1) {
+  if (scaleFactor == 1) 
+  {
       translateX = 0.0f;
       translateY = 0.0f;
   }
 }
 
 
-public void mouseDragged( ) 
+public void mouseDragged() 
 {
   if (mousePressed && (mouseButton == LEFT)) 
    { 

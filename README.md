@@ -2,8 +2,8 @@
 all assigments
 
 
-..		
-00 - Introduction	a
+
+00 - Introduction	 -
 00 - Side Projects
 01 - Humble beginnings
 02 - Learning to Program	example of parabolic curves.

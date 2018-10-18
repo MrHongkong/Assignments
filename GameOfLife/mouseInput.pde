@@ -19,18 +19,20 @@ void mouseWheel(MouseEvent event)
   translateX += mouseX;
   translateY += mouseY;  
   println(scaleFactor);
+  
   if (scaleFactor < 1) 
   {
     scaleFactor = 1;
   }
-  if (scaleFactor == 1) {
+  if (scaleFactor == 1) 
+  {
       translateX = 0.0;
       translateY = 0.0;
   }
 }
 
 
-void mouseDragged( ) 
+void mouseDragged() 
 {
   if (mousePressed && (mouseButton == LEFT)) 
    { 
