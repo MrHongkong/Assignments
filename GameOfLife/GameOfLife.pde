@@ -13,8 +13,8 @@ float translateY = 0.0;
 boolean pause = false;
 
 void setup() {
-// size(900,900);
-fullScreen();
+size(900,900);
+// fullScreen();
 background(0);
 
 matrixCalculation();

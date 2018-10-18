@@ -7,11 +7,19 @@
 </div>
 
 Controls:
+
 +:            framerate increase
+
 -:            framerate decrease
+
 space:        Kill all
+
 n:            new random spawn generator
+
 p:            pause
+
 Scroll:       Zoom
+
 left mouse:   click and drag
+
 right mouse:  Draw mode  
