@@ -111,3 +111,16 @@ void nextGenerationRulesCalculation ()
 	}
 }
 
+void killCommand() 
+{
+for (int y = 0; y < numberOfRows; ++y) 
+    {
+      for (int x = 0; x < numberOfColumbs ; ++x) 
+      {
+        cells[x][y] = new GameObject(x, y, cellSize);
+      
+        cells[x][y].alive = false;
+      
+      }
+    }
+}

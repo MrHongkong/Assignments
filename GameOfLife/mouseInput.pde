@@ -19,15 +19,36 @@ void mouseWheel(MouseEvent event)
   translateX += mouseX;
   translateY += mouseY;  
   println(scaleFactor);
-  
+  if (scaleFactor < 1) 
+  {
+    scaleFactor = 1;
+  }
+  if (scaleFactor == 1) {
+      translateX = 0.0;
+      translateY = 0.0;
+  }
 }
 
 
-void mouseDragged(MouseEvent event) 
+void mouseDragged( ) 
 {
   if (mousePressed && (mouseButton == LEFT)) 
    { 
-    translateX += mouseX - pmouseX;
-    translateY += mouseY - pmouseY;
+      translateX += mouseX - pmouseX;
+      translateY += mouseY - pmouseY;
    }
+
+
+
+
+  
+
+        
+   if (mousePressed && (mouseButton == RIGHT))
+    {
+       cells[pmouseX/int(cellSize)][pmouseY/int(cellSize)].alive = true; 
+    }
+
 }
+
+   

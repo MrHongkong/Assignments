@@ -15,7 +15,7 @@ import java.io.IOException;
 public class GameOfLife extends PApplet {
 
 GameObject cells [][];
-float cellSize = 10;
+float cellSize = 5;
 int numberOfColumbs;
 int numberOfRows; 
 int fillpercentage = 20 ; 
@@ -26,28 +26,32 @@ float scaleFactor = 1.0f;
 float translateX = 0.0f;
 float translateY = 0.0f;
 
-
+boolean pause = false;
 
 public void setup() {
+// size(900,900);
 
-// fullScreen();
 background(0);
 
-	
 matrixCalculation();
 initialAliveCalculation() ;
-
 }
-public void draw() {
-frameRate(frameChange);
-drawBackroundEffect () ;
 
-translate(translateX,translateY);
-scale(scaleFactor);
 
-drawCellMatrixCalculation();
-checkAliveCellsCalculation();
-nextGenerationRulesCalculation();
+public void draw() 
+{
+	frameRate(frameChange);
+	drawBackroundEffect () ;
+
+	translate(translateX,translateY);
+	scale(scaleFactor);
+	
+	drawCellMatrixCalculation();
+	checkAliveCellsCalculation();
+	if(!pause) 
+	{
+		nextGenerationRulesCalculation();
+	}
 }
 public class Fill  {
 boolean deadFill = false;
@@ -216,62 +220,19 @@ public void nextGenerationRulesCalculation ()
 	}
 }
 
-// // checks if neighbours are alive
-
-// for (int y = 0; y < numberOfRows; ++y) 
-// 	 {
-// 	 	int neighbour = 0 ;
-// 		for (int x = 0; x < numberOfColumbs ; ++x) 
-// 		{
-// 			if (cells[x-1][y-1].alive == true) 
-// 			{
-// 			neighbour = neighbour +1 ; 					
-// 			}			
-// 			if (cells[x][y-1].alive == true) 
-// 			{
-// 			neighbour = neighbour +1 ; 					
-// 			}
-// 			if (cells[x+1][y-1].alive == true) 
-// 			{
-// 			neighbour = neighbour +1 ; 					
-// 			}
-// 			if (cells[x-1][y].alive == true) 
-// 			{
-// 			neighbour = neighbour +1 ; 					
-// 			}
-// 			if (cells[x+1][y].alive == true) 
-// 			{
-// 			neighbour = neighbour +1 ; 					
-// 			}
-// 			if (cells[x-1][y+1].alive == true) 
-// 			{
-// 			neighbour = neighbour +1 ; 					
-// 			}
-// 			if (cells[x][y+1].alive == true) 
-// 			{
-// 			neighbour = neighbour +1 ; 					
-// 			}
-// 			if (cells[x+1][y+1].alive == true) 
-// 			{
-// 			neighbour = neighbour +1 ; 					
-// 			}							
-		
-
-
-
-
-// 		}
-
-// 	}
-
-
-// 	if (neighbour > 3) {
-// 	alive = false;	
-// 	}
-
-// 	else if (neighbour<3) {
-// 		alive = true;
-// 	}
+public void killCommand() 
+{
+for (int y = 0; y < numberOfRows; ++y) 
+    {
+      for (int x = 0; x < numberOfColumbs ; ++x) 
+      {
+        cells[x][y] = new GameObject(x, y, cellSize);
+      
+        cells[x][y].alive = false;
+      
+      }
+    }
+}
 public void drawBackroundEffect () 
 {
 	fill(255, 255, 255, 10);
@@ -306,8 +267,20 @@ public void keyPressed()
 		frameChange = 10;
 	}
 
-	
+	if (keyCode == 32) // Kill command
+  {
+    killCommand();
+  }
+
+  if (key == 'n')
+  {
+    initialAliveCalculation(); 
+  }
+  if (key == 'p') {
+    pause = !pause; 
+     }
 }
+
 public void mouseWheel(MouseEvent event) 
 {
 
@@ -329,20 +302,41 @@ public void mouseWheel(MouseEvent event)
   translateX += mouseX;
   translateY += mouseY;  
   println(scaleFactor);
-  
+  if (scaleFactor < 1) 
+  {
+    scaleFactor = 1;
+  }
+  if (scaleFactor == 1) {
+      translateX = 0.0f;
+      translateY = 0.0f;
+  }
 }
 
 
-public void mouseDragged(MouseEvent event) 
+public void mouseDragged( ) 
 {
   if (mousePressed && (mouseButton == LEFT)) 
    { 
-    translateX += mouseX - pmouseX;
-    translateY += mouseY - pmouseY;
+      translateX += mouseX - pmouseX;
+      translateY += mouseY - pmouseY;
    }
+
+
+
+
+  
+
+        
+   if (mousePressed && (mouseButton == RIGHT))
+    {
+       cells[pmouseX/PApplet.parseInt(cellSize)][pmouseY/PApplet.parseInt(cellSize)].alive = true; 
+    }
+
 }
+
+   
   public void settings() { 
-size(900,900); }
+fullScreen(); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "GameOfLife" };
     if (passedArgs != null) {

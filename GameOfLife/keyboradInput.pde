@@ -27,5 +27,17 @@ void keyPressed()
 		frameChange = 10;
 	}
 
-	
+	if (keyCode == 32) // Kill command
+  {
+    killCommand();
+  }
+
+  if (key == 'n')
+  {
+    initialAliveCalculation(); 
+  }
+  if (key == 'p') {
+    pause = !pause; 
+     }
 }
+
