@@ -12,7 +12,7 @@
 
 ##  Trouble in Terrorist Town - Rooftops
 
-<img src="https://user-images.githubusercontent.com/43011629/48643466-193a5700-e9e0-11e8-9534-67c0cd63e958.jpg"  size="100%" >
+<img src="https://user-images.githubusercontent.com/43011629/48643701-ada4b980-e9e0-11e8-90fb-bed6dc811463.jpg"  size="100%" >
 <img src="https://user-images.githubusercontent.com/43011629/48643496-29eacd00-e9e0-11e8-8e19-58a6d6b70972.jpg"  size="100%" >
 <img src="https://user-images.githubusercontent.com/43011629/48643515-34a56200-e9e0-11e8-93bd-83e60227b311.jpg"  size="100%" >
 </div>
