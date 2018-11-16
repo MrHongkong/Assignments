@@ -29,8 +29,8 @@ float translateY = 0.0f;
 boolean pause = false;
 
 public void setup() {
+// size(900,900);
 
-// fullScreen();
 background(0);
 
 matrixCalculation();
@@ -315,7 +315,7 @@ public void mouseDragged()
 
    
   public void settings() { 
-size(900,900); }
+fullScreen(); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "GameOfLife" };
     if (passedArgs != null) {
